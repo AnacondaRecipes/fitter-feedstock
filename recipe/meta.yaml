@@ -44,7 +44,14 @@ test:
 
 about:
   summary: A tool to fit data to many distributions and get the best one(s)
-  doc_url: https://pythonhosted.org/fitter/
+  description: |
+    The fitter package is a Python library used for fitting probability distributions to data. It provides a 
+    straightforward and and intuitive interface to estimate parameters for various types of distributions, both 
+    continuous and discrete.
+  doc_url: https://fitter.readthedocs.io/
+  dev_url: https://github.com/cokelaer/fitter
+  home_url: https://github.com/cokelaer/fitter
+  license_family: GPL
   license: GPL-3.0
   license_file: LICENSE
 
