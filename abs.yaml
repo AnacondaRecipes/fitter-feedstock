@@ -1,5 +1,2 @@
 upload_channels:
   - sfe1ed40
-channels:
-  - https://staging.continuum.io/prefect/fs/loguru-feedstock/pr5/3b2c85e
-  -  https://staging.continuum.io/prefect/fs/rich-click-feedstock/pr2/9d545f3
