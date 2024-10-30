@@ -1,0 +1,60 @@
+{% set name = "fitter" %}
+{% set version = "1.7.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fitter-{{ version }}.tar.gz
+  sha256: d9df8885f106d911c3a7ed97949b3cf3c29ec2464c529244f2434738dd6b0e50
+
+build:
+  entry_points:
+    - fitter = fitter.main:main
+  skip: true  # [py<38]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python
+    - poetry-core
+    - pip
+  run:
+    - python
+    - click >=8.1.6,<9.0.0
+    - joblib >=1.3.1,<2.0.0
+    - matplotlib-base >=3.7.2,<4.0.0
+    - numpy >=1.20.0,<2.0.0
+    - pandas >=0.23.4,<3.0.0
+    - scipy >=0.18.0,<2.0.0
+    - tqdm >=4.65.1,<5.0.0
+    - loguru >=0.7.2,<0.8.0
+    - rich-click >=1.7.2,<2.0.0
+
+test:
+  imports:
+    - fitter
+  commands:
+    - pip check
+    - fitter --help
+  requires:
+    - pip
+
+about:
+  home: https://github.com/cokelaer/fitter
+  summary: A tool to fit data to many distributions and get the best one(s)
+  description: |
+    The fitter package is a Python library used for fitting probability distributions to data. It provides a 
+    straightforward and and intuitive interface to estimate parameters for various types of distributions, both 
+    continuous and discrete.
+  doc_url: https://fitter.readthedocs.io/
+  dev_url: https://github.com/cokelaer/fitter
+  license_family: GPL
+  license: GPL-3.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - psteyer
